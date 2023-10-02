@@ -1,4 +1,7 @@
                 /* KHUNG BASE HEADER  */
+.app {
+    overflow: hidden;
+}
 .header {
     height: var(--header-height);
     background-image: linear-gradient(0, #fc5d31, #f7462e);
@@ -433,8 +436,27 @@
     align-items: center;
     margin: 0 8px;
 }
+
+.header__mobile-search {
+    margin: 12px 20px 0;
+    display: none;
+}
+
+.header__mobile-search-icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
+}
+.header__mobile-search {
+    display: none;
+}
 .header__logo {
     width: 200px;
+}
+.header__logo-link {
+    display: block;
+    line-height: 0;
+    color: transparent;
+    text-decoration: none;
 }
 .header__logo-img {
     width: 146px;
@@ -446,7 +468,9 @@
     flex: 1;
     display: flex;
     align-items: center;
+
 }
+
 .header__cart {
     width: 140px;
     text-align: center;
@@ -604,7 +628,9 @@
 .header__search-input:focus ~ .header__search-history {
     display: block;
 }
-
+.nav__mobile {
+    display: none;
+}
 /* HIỆN GIỎ HÀNG  */
 .header__cart-wrap {
     position: relative;
@@ -689,6 +715,8 @@
 .header__cart-list-item {
     padding-left: 0;
     list-style: none;
+    max-height: 60vh;
+    overflow-y: auto;
 }
 .header__cart-item:hover {
     background-color: #f8f8f8;
@@ -717,7 +745,7 @@
     font-size: 1.4rem;
     font-weight: 400;
     margin: 0;
-    max-width: 240px;
+    max-width: 207px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -768,6 +796,56 @@
 }                   
 .header__cart-view-cart:hover {
     background-color: #F05D41;
+}
+
+/* Header__sort-bar */
+
+.header__sort-bar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header__navbar-height);
+    background-color: var(--white-color);
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+}
+
+.header__sort-item {
+    flex: 1;
+}
+
+.header__sort-item:first-child .header__sort-link::after {
+    display: none;
+}
+
+.header__sort-item--active .header__sort-link {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+
+}
+
+.header__sort-link {
+    text-decoration: none;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header__navbar-height);
+    position: relative;
+}
+.header__sort-link::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    left: 0;
+    border-left: 1px solid #e5e5e5;
 }
 
         /* CATEGORY  */
@@ -836,6 +914,11 @@
 .category__item--link:hover {
     color: var(--primary-color);
     right: -4px;
+}
+
+/* category mobile  */
+.mobile__category { 
+    display: none;
 }
 
         /* SẮP XẾP CSS  */
@@ -1076,6 +1159,7 @@
 
 .home-product--paganation {
     margin: 42px 0 32px 0;
+    padding-left: 0;
 }
 .paganation-item--select:hover {
     color: var(--primary-color);
@@ -1185,18 +1269,25 @@
     justify-content: end;
 }
 .footer__nation-text {
+    display: flex;
     margin: 0;
     font-size: 1.4rem;
     color: #666;
+    list-style: none;
+}
+.footer__nation-item {
+    display: block;
+    padding: 0 10px;
+    border-right: 1px solid #ccc;
+
 }
 .footer__nation-name {
     font-size: 1.4rem;
     color: #666;
-    padding: 0 5px;
     text-decoration: none;
-    border-right: 1px solid var(--border-color);
 }
-.footer__nation-name:last-child {
+
+.footer__nation-item:last-child {
     border-right: none;
 }
 
@@ -1211,6 +1302,11 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 40px;
+    list-style: none;
+}
+.footer-policy-list {
+    padding: 0 28px;
+    border-right: 1px solid var(--border-color);
 }
 .footer-policy-portal {
     display: flex;
@@ -1218,11 +1314,9 @@
     text-decoration: none;
     font-size: 1.3rem;
     color: #666;
-    padding: 0 28px;
-    border-right: 1px solid var(--border-color);
 
 }
-.footer-policy-portal:last-child {
+.footer-policy-list:last-child {
     border-right: none;
 }
 
